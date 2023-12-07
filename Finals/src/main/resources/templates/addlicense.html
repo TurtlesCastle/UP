@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+<form method="post" action="/addlicense">
+    <div>Ссылка на лицензию:</div>
+    <div></div>
+    <input type="text" name="text_source" id="text_source">
+
+    <div>ФИО</div>
+    <div></div>
+    <input type="text" name="fio" id="fio">
+
+    <div></div>
+    <span th:text="${exception}"></span>
+    <div></div>
+    <input type="submit" value="Добавить">
+</form>
+<div>
+    <form method="get" action="/">
+
+        <input type="submit" value="Вернуться на главную">
+    </form>
+</div></body>
+</html>

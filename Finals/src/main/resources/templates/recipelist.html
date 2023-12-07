@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+
+<form method="get" action="/recipelist">
+    <label>Найти по названию:</label>
+    <input type="text" th:value="${name}" name="name">
+    <input type="submit" value="Поиск" data-number="2">
+</form>
+<form method="get" action="/recipelist">
+
+</form>
+<table>
+    <tbody>
+    <tr>
+        <td th:text="Название"></td>
+        <td th:text="Содержание"></td>
+        <td th:text="Автор"></td>
+        <td>Подробнее</td>
+        <td>В избранное</td>
+
+    </tr>
+    <tr th:each="object: ${objects}">
+        <td th:text="${object.getName()}"></td>
+        <td th:text="${object.getText()}"></td>
+        <td th:text="${object.getAuthor().getLogin()}"></td>
+        <td>
+            <form method="get" th:action="@{/recipe}">
+                <input type="hidden" name="ID" th:value="${object.getId_recipe()}">
+                <input type="image" data-number="3" alt="Submit" src="png-transparent-computer-icons-refresh-text-monochrome-black.png">
+            </form>
+        </td>
+        <td>
+            <form method="post" action = "/tofavourites" >
+                <input type="hidden" id="deleteID" name="ID" th:value="${object.getId_recipe()}"/>
+                <input type="image" data-number="2" alt="Submit" src="kisspng-recycling-symbol-logo-clip-art-delete-button-5ac2acc9cfa2d6.5671305115227076578505.png"/>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

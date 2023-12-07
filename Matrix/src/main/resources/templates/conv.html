@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Converter</title>
+</head>
+<body>
+<form method="get" action="/home">
+    <input value="Назад" type="submit">
+</form>
+<form method="post" action="/conv">
+<a>Конвертировать из</a>
+    <div></div>
+    <select name="from" style="width: max-content">
+        <option value="dollars" id="dollars" content="Доллары" selected>Доллары</option>
+        <option value="euros" id="euros" content="Евро" >Евро</option>
+        <option value="roubles" id="roubles" content="Рубли" >Рубли</option>
+    </select>
+    <div></div>
+<a>Величина:</a>
+<input name="convertFromValue" type="number" step="0.01" required>
+<div>Конвертировать в</div>
+    <div></div>
+    <select name="to" style="width: max-content">
+        <option value="dollar" id="dollar" content="Доллары" selected>Доллары</option>
+        <option value="euro" id="euro" content="Евро" >Евро</option>
+        <option value="rouble" id="rouble" content="Рубли">Рубли</option>
+    </select>
+
+<input value="Посмотреть результат" type="submit">
+</form>
+<a>Ответ:</a>
+<a th:text="${value}"></a>
+</body>
+</html>

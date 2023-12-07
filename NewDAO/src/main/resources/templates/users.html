@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+
+<table>
+    <tbody>
+    <tr>
+        <td>ID</td>
+        <td th:text="${col1}"></td>
+        <td th:text="${col2}"></td>
+        <td th:text="${col3}"></td>
+        <td th:text="${col4}"></td>
+        <td>Изменить</td>
+        <td>Удалить</td>
+
+    </tr>
+    <tr th:each="object: ${users}">
+        <td th:text="${object.userID}"></td>
+        <td th:text="${object.login}"></td>
+        <td th:text="${object.password}"></td>
+        <td th:text="${object.eMail}"></td>
+        <td th:text="${object.role.getRoleName()}"></td>
+        <td>
+            <form method="get" th:action="@{/useredit}">
+                <input type="hidden" name="login" th:value="${object.login}">
+                <input type="image" data-number="3" alt="Submit" src="png-transparent-computer-icons-refresh-text-monochrome-black.png">
+            </form>
+        </td>
+        <td>
+            <form method="post" action = "/userdelete" >
+                <input type="hidden" name="_method" value="delete"/>
+                <input type="hidden" id="deleteID" name="login" th:value="${object.login}"/>
+                <input type="image" data-number="2" alt="Submit" src="kisspng-recycling-symbol-logo-clip-art-delete-button-5ac2acc9cfa2d6.5671305115227076578505.png"/>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

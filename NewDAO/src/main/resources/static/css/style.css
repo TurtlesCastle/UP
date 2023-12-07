@@ -1,0 +1,33 @@
+input[type="image"]{
+    width: 24px;
+    margin-left: 40%;
+}
+td:has(input[type="image"]){
+    background: mediumpurple;
+}
+input[type="submit"]{
+    color: azure;
+    background: mediumpurple;
+    border-radius: 6px;
+    margin-top: 8px;
+    width: 160px;
+    cursor: pointer;
+    font-style: oblique;
+}
+[data-number="1"]{
+    margin-left: 36%;
+}
+*{
+    font-size: 24px;
+}
+body{
+    background: white;
+}
+tr:first-child{
+    background: mediumpurple;
+    color: azure;
+}
+td{
+    border: black solid 2px;
+}
+

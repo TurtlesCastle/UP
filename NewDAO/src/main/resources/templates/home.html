@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+<sec:authorize access="isAuthenticated()">
+    <form method="get" action="/login?logout">
+        <input type="submit" value="Выйти" data-number="2">
+    </form>
+</sec:authorize>
+<sec:authorize access="isAnonymous()">
+    <form method="get" action="/login">
+        <input type="submit" value="Войти" data-number="2">
+    </form>
+</sec:authorize>
+<div></div>
+<form method="get" action="/list">
+    <input type="hidden" value="Род" name="col1">
+    <input type="hidden" value="Вид" name="col2">
+    <input type="hidden" value="Ареал распространения" name="col3">
+    <input type="hidden" value="Семейство" name="col4">
+    <input type="hidden" value="Животные" name="table">
+    <input type="submit" value="Животные" data-number="1">
+</form>
+<form method="get" action="/list">
+    <input type="hidden" value="Форма" name="col1">
+    <input type="hidden" value="Вид" name="col2">
+    <input type="hidden" value="Место обитания" name="col3">
+    <input type="hidden" value="Размер" name="col4">
+    <input type="hidden" value="Бактерии" name="table">
+    <input type="submit" value="Бактерии" data-number="1">
+</form>
+<form method="get" action="/list">
+    <input type="hidden" value="Род" name="col1">
+    <input type="hidden" value="Вид" name="col2">
+    <input type="hidden" value="Способ питания" name="col3">
+    <input type="hidden" value="Семейство" name="col4">
+    <input type="hidden" value="Растения" name="table">
+    <input type="submit" value="Растения" data-number="1">
+</form>
+<form method="get" action="/list">
+    <input type="hidden" value="Род" name="col1">
+    <input type="hidden" value="Вид" name="col2">
+    <input type="hidden" value="Способ питания" name="col3">
+    <input type="hidden" value="Семейство" name="col4">
+    <input type="hidden" value="Грибы" name="table">
+    <input type="submit" value="Грибы" data-number="1">
+</form>
+<form method="get" action="/list">
+    <input type="hidden" value="Классификация" name="col1">
+    <input type="hidden" value="Вид" name="col2">
+    <input type="hidden" value="Носитель" name="col3">
+    <input type="hidden" value="Симптомы" name="col4">
+    <input type="hidden" value="Вирусы" name="table">
+    <input type="submit" value="Вирусы" data-number="1">
+</form>
+
+</body>
+</html>

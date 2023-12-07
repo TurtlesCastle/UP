@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+<form method="get" action="/home">
+    <input type="submit" value="Домой" data-number="1">
+</form>
+<form method="get" action="/add">
+    <input type="hidden" th:value="${col1}" name="colName1">
+    <input type="hidden" th:value="${col2}" name="colName2">
+    <input type="hidden" th:value="${col3}" name="colName3">
+    <input type="hidden" th:value="${col4}" name="colName4">
+    <input type="hidden" th:value="${table}" name="table">
+    <input type="submit" value="Добавить" data-number="1">
+</form>
+<form method="get" action="/list">
+    <input type="hidden" th:value="${col1}" name="col1">
+    <input type="hidden" th:value="${col2}" name="col2">
+    <input type="hidden" th:value="${col3}" name="col3">
+    <input type="hidden" th:value="${col4}" name="col4">
+    <input type="hidden" th:value="${table}" name="table">
+    <label>Найти по виду:</label>
+    <input type="text" th:value="${species}" name="species">
+    <input type="submit" value="Поиск" data-number="2">
+</form>
+<table>
+    <tbody>
+    <tr>
+        <td>ID</td>
+        <td th:text="${col1}"></td>
+        <td th:text="${col2}"></td>
+        <td th:text="${col3}"></td>
+        <td th:text="${col4}"></td>
+        <td>Изменить</td>
+        <td>Удалить</td>
+
+    </tr>
+    <tr th:each="object: ${objects}">
+        <td th:text="${object.ID}"></td>
+        <td th:text="${object.col1}"></td>
+        <td th:text="${object.col2}"></td>
+        <td th:text="${object.col3}"></td>
+        <td th:text="${object.col4}"></td>
+        <td>
+            <form method="get" th:action="@{/edit}">
+                <input type="hidden" th:value="${col1}" name="colName1">
+                <input type="hidden" th:value="${col2}" name="colName2">
+                <input type="hidden" th:value="${col3}" name="colName3">
+                <input type="hidden" th:value="${col4}" name="colName4">
+                <input type="hidden" th:value="${table}" name="table">
+                <input type="hidden" name="col1" th:value="${object.col1}">
+                <input type="hidden" name="col2" th:value="${object.col2}">
+                <input type="hidden" name="col3" th:value="${object.col3}">
+                <input type="hidden" name="col4" th:value="${object.col4}">
+                <input type="hidden" name="ID" th:value="${object.ID}">
+                <input type="image" data-number="3" alt="Submit" src="png-transparent-computer-icons-refresh-text-monochrome-black.png">
+            </form>
+        </td>
+        <td>
+            <form method="post" action = "/delete" >
+                <input type="hidden" th:value="${col1}" name="col1">
+                <input type="hidden" th:value="${col2}" name="col2">
+                <input type="hidden" th:value="${col3}" name="col3">
+                <input type="hidden" th:value="${col4}" name="col4">
+                <input type="hidden" th:value="${table}" name="table">
+                <input type="hidden" th:value="${species}" name="species">
+                <input type="hidden" name="_method" value="delete"/>
+                <input type="hidden" id="deleteID" name="deleteID" th:value="${object.ID}"/>
+                <input type="image" data-number="2" alt="Submit" src="kisspng-recycling-symbol-logo-clip-art-delete-button-5ac2acc9cfa2d6.5671305115227076578505.png"/>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

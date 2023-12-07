@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+<form method="post" action="/dishcategories">
+    <input type="text" name="name_category" id="col2">
+    <input type="submit" value="Добавить">
+    <div></div>
+</form>
+<table>
+    <tbody>
+    <tr>
+        <td>Название</td>
+        <td>Удалить</td>
+
+
+    </tr>
+    <tr th:each="object: ${objects}">
+        <td th:text="${object.getNameCategory()}"></td>
+        <td>
+            <form method="post" action = "/dishcategories/delete" >
+                <input type="hidden" id="deleteID" name="name_category" th:value="${object.getNameCategory()}"/>
+                <input type="hidden" name="_method" value="delete"/>
+                <input type="image" data-number="2" alt="Submit" src="kisspng-recycling-symbol-logo-clip-art-delete-button-5ac2acc9cfa2d6.5671305115227076578505.png"/>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

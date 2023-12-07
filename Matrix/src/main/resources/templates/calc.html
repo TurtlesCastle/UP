@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<form action="/home" method="get">
+    <input type="submit" value="Назад"/>
+</form>
+<form method="post" action="/calc">
+    <div>Поле для числа 1:</div>
+    <input type="number" step="any" required name="float1">
+    <fieldset style="width: max-content">
+        <legend>Действие:</legend>
+        <div></div>
+        <input type="radio" name="action" id="+" value="+" checked/>+
+        <div></div>
+        <input type="radio" name="action" id="x" value="x"/>x
+        <div></div>
+        <input type="radio" name="action" id="-" value="-"/>-
+        <div></div>
+        <input type="radio" name="action" id="÷" value="÷"/>÷
+        <div></div>
+        <input type="radio" name="action" id="%" value="%"/>%
+    </fieldset>
+    <div>Поле для числа 2:</div>
+    <input type="number" step="any" required name="float2"/>
+    <input type="submit" value="Посмотреть результат"/>
+</form>
+</html>

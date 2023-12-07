@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/useredit">
+    <input type="hidden" th:value="put" th:name="_method">
+    <div th:text="Логин">:</div>
+    <div></div>
+    <input type="text" disabled name="l" id="l"  th:value="${user.login}">
+    <input type="hidden" name="login"  th:value="${user.login}">
+    <div th:text="Роль">:</div>
+    <div></div>
+    <input type="text" name="role" id="col4"  th:value="${user.getRole().getRoleName()}">
+    <div></div>
+    <span th:text="${exception}"></span>
+    <div></div>
+    <input type="submit" value="Изменить">
+</form>
+<div>
+    <form method="get" action="/users">
+
+        <input type="submit" value="Посмотреть объекты">
+    </form>
+</div>
+</body>
+</html>
